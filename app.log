@@ -1,0 +1,32 @@
+[33m[nodemon] 3.0.1[39m
+[33m[nodemon] to restart at any time, enter `rs`[39m
+[33m[nodemon] watching path(s): *.*[39m
+[33m[nodemon] watching extensions: js,mjs,cjs,json[39m
+[32m[nodemon] starting `node server.js`[39m
+Fri, 15 Mar 2024 20:30:14 GMT morgan deprecated undefined format: specify a format at app.js:20:9
+Fri, 15 Mar 2024 20:30:14 GMT morgan deprecated default format: use combined format at app.js:20:9
+App running on port 4000...
+(node:16000) [DEP0170] DeprecationWarning: The URL mongodb://nm5364275:wkaMmwfg5xIDqSpI@ac-cqqnyiw-shard-00-02.aceozbr.mongodb.net:27017,ac-cqqnyiw-shard-00-00.aceozbr.mongodb.net:27017,ac-cqqnyiw-shard-00-01.aceozbr.mongodb.net:27017/?authSource=admin&replicaSet=atlas-qojzsq-shard-0&retryWrites=true&w=majority&appName=faculty&ssl=true is invalid. Future versions of Node.js will throw an error.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+(node:16000) DeprecationWarning: collection.ensureIndex is deprecated. Use createIndexes instead.
+DB connection successful!
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node server.js`[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node server.js`[39m
+Fri, 15 Mar 2024 20:40:24 GMT morgan deprecated undefined format: specify a format at app.js:20:9
+Fri, 15 Mar 2024 20:40:24 GMT morgan deprecated default format: use combined format at app.js:20:9
+App running on port 4000...
+(node:2540) [DEP0170] DeprecationWarning: The URL mongodb://nm5364275:wkaMmwfg5xIDqSpI@ac-cqqnyiw-shard-00-01.aceozbr.mongodb.net:27017,ac-cqqnyiw-shard-00-02.aceozbr.mongodb.net:27017,ac-cqqnyiw-shard-00-00.aceozbr.mongodb.net:27017/?authSource=admin&replicaSet=atlas-qojzsq-shard-0&retryWrites=true&w=majority&appName=faculty&ssl=true is invalid. Future versions of Node.js will throw an error.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+(node:2540) DeprecationWarning: collection.ensureIndex is deprecated. Use createIndexes instead.
+DB connection successful!
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node server.js`[39m
+Fri, 15 Mar 2024 20:40:32 GMT morgan deprecated undefined format: specify a format at app.js:20:9
+Fri, 15 Mar 2024 20:40:32 GMT morgan deprecated default format: use combined format at app.js:20:9
+App running on port 4000...
+(node:10812) [DEP0170] DeprecationWarning: The URL mongodb://nm5364275:wkaMmwfg5xIDqSpI@ac-cqqnyiw-shard-00-00.aceozbr.mongodb.net:27017,ac-cqqnyiw-shard-00-02.aceozbr.mongodb.net:27017,ac-cqqnyiw-shard-00-01.aceozbr.mongodb.net:27017/?authSource=admin&replicaSet=atlas-qojzsq-shard-0&retryWrites=true&w=majority&appName=faculty&ssl=true is invalid. Future versions of Node.js will throw an error.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+(node:10812) DeprecationWarning: collection.ensureIndex is deprecated. Use createIndexes instead.
+DB connection successful!
