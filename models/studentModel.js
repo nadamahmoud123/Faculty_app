@@ -73,10 +73,19 @@ const studentSchema = new mongoose.Schema({
     {
       subject: { type: mongoose.Schema.Types.ObjectId, ref: "Subject" },
       passed: { type: Boolean, default: false },
+      grade: { type: Number, default: 0 },
     },
   ],
+  assignments: [{ type: mongoose.Schema.Types.ObjectId, ref: "Assignment" }],
+  passedHours: {
+    type: Number,
+    default: 0,
+  },
+  level: {
+    type: Number,
+    default: 1,
+  },
 });
-
 studentSchema.pre("save", async function (next) {
   // Only run this function if password was actually modified
   if (!this.isModified("password")) return next();
@@ -141,19 +150,20 @@ studentSchema.methods.createPasswordResetToken = function () {
 };
 
 // Method to check if student meets prerequisites for a subject
+
 studentSchema.methods.meetsPrerequisites = async function (subjectId) {
   const subject = await mongoose.model("Subject").findById(subjectId);
-
+  // console.log(subject);
   if (!subject) {
     throw new Error("Subject not found");
   }
 
   for (const prereq of subject.prerequisites) {
-    const passedPrereq =
-      this /* The `subjects` field in the student schema is an array of objects that
-    represent the subjects a student is enrolled in. Each object in the
-    array contains two properties: */.subjects
-        .find((s) => s.subject.equals(prereq) && s.passed);
+    // Check if the student has enrolled in the prerequisite subject and has passed it
+    const passedPrereq = this.subjects.some(
+      (s) => s.subject.equals(prereq.subject) && s.passed
+    );
+
     if (!passedPrereq) {
       return false; // Student hasn't passed one of the prerequisites
     }
@@ -162,6 +172,20 @@ studentSchema.methods.meetsPrerequisites = async function (subjectId) {
   return true; // Student meets all prerequisites
 };
 
+studentSchema.methods.updateLevel = async function () {
+  const hoursPassed = this.hoursPassed;
+
+  // Define the logic to determine the level based on hoursPassed
+  if (hoursPassed >= 3) {
+    this.level = 2;
+  } else if (hoursPassed >= 12) {
+    this.level = 3;
+  } else if (hoursPassed >= 18) {
+    this.level = 4;
+  } // Add more conditions as needed
+
+  await this.save();
+};
 const Student = mongoose.model("Student", studentSchema);
 
 module.exports = Student;

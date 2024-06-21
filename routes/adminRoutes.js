@@ -1,9 +1,10 @@
 const express = require("express");
+const multer = require("multer");
 const adminController = require("../controllers/adminController");
 const authController = require("../controllers/authController");
 //const userController = require("../controllers/adminController");
 const router = express.Router();
-
+const upload = multer({ dest: "uploads/" });
 router.post("/signup", authController.signup);
 router.post("/login", authController.login);
 router.post("/forgotPassword", authController.forgotPassword);
@@ -16,6 +17,7 @@ router.get("/logout", authController.logout);
 router.patch("/updateMyPassword", authController.updatePassword);
 //router.get("/me", userController.getMe, userController.getUser);
 //router.patch("/updateMe", userController.updateMe);
+router.post("/add-subjects-to-doctor", adminController.addSubjectsToDoctor);
 
 router.use(authController.restrictTo("admin"));
 
@@ -32,5 +34,9 @@ router
   .get(adminController.getUser)
   .patch(adminController.updateUser)
   .delete(adminController.deleteUser);
+
+// Route to upload degrees for specific subjects
+
+//router.post("/upload-degrees", adminController.uploadDegrees);
 
 module.exports = router;

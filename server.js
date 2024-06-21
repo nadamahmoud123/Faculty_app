@@ -4,6 +4,7 @@ const dotenv = require("dotenv");
 process.on("uncaughtException", (err) => {
   console.log("UNCAUGHT EXCEPTION! 💥 Shutting down...");
   console.log(err.name, err.message);
+  console.log(err);
   process.exit(1);
 });
 
@@ -20,7 +21,10 @@ mongoose
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
-  .then(() => console.log("DB connection successful!"))
+  .then(() => {
+    console.log("DB connection successful!");
+    mongoose.set("useCreateIndex", true); // Setting useCreateIndex after successful connection
+  })
   .catch((err) => {
     console.error("DB connection error:", err);
     process.exit(1); // Terminate the application if unable to connect to the database

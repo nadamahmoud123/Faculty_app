@@ -18,7 +18,7 @@ const userSchema = new mongoose.Schema({
   photo: String,
   role: {
     type: String,
-    enum: ["doctor", "admin"],
+    enum: ["admin"],
   },
   password: {
     type: String,
@@ -58,15 +58,6 @@ const userSchema = new mongoose.Schema({
   birthDate: {
     type: Date,
     required: [true, "Please provide the birth date"],
-  },
-  DateOfHiring: {
-    type: Date,
-    required: [true, "Please provide the date of acceptance"],
-  },
-  department: {
-    type: String,
-    enum: ["CS", "IT", "IS"],
-    required: [true, "Please provide the department"],
   },
 });
 
